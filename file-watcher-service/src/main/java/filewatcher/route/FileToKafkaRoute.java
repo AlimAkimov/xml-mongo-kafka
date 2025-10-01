@@ -1,6 +1,5 @@
 package filewatcher.route;
 
-import filewatcher.dto.EmployeesWrapper;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
