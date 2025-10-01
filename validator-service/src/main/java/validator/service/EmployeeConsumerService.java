@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import validator.dto.Employee;
+import validator.model.EmployeeEntity;
 import validator.repository.EmployeeRepository;
 import validator.utils.EmployeeMapper;
 import validator.utils.Validator;
@@ -29,7 +30,7 @@ public class EmployeeConsumerService {
             log.warn("Сотрудник невалидный: {}", employee.getId());
             return;
         }
-        validator.model.EmployeeEntity entity = employeeMapper.toEntity(employee);
+        EmployeeEntity entity = employeeMapper.toEntity(employee);
         repository.save(entity);
         log.info("Сохранен сотрудник с id={}", employee.getId());
     }
