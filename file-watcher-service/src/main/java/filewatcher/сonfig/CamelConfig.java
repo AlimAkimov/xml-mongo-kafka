@@ -1,6 +1,5 @@
 package filewatcher.сonfig;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import filewatcher.dto.EmployeesWrapper;
