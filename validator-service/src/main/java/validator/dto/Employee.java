@@ -6,7 +6,8 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,20 +20,29 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @XmlRootElement(name = "employee")
 public class Employee {
-    @NotNull
+    @NotBlank(message = "id не должен быть пустым")
     String id;
-    @NotNull
+
+    @NotBlank(message = "firstName не должен быть пустым")
     String firstName;
-    @NotNull
+
+    @NotBlank(message = "lastName не должен быть пустым")
     String lastName;
-    @NotNull
+
+    @NotBlank(message = "position не должен быть пустым")
     String position;
-    @NotNull
+
+    @NotBlank(message = "department не должен быть пустым")
     String department;
-    @NotNull
+
+    @NotNull(message = "hireDate обязателен")
+    @Past(message = "Элемент hireDate должен быть раньше сегодняшней даты")
     LocalDate hireDate;
-    @NotNull
+
+    @NotNull(message = "Элемент salary не должен быть пустым")
     BigDecimal salary;
+
     @JacksonXmlElementWrapper(localName = "projects")
+    @Valid
     List<Project> projects = new ArrayList<>();
 }
