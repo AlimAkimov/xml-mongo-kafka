@@ -9,11 +9,11 @@ import org.apache.camel.component.jacksonxml.JacksonXMLDataFormat;
 import org.springframework.stereotype.Component;
 
 @Component
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 public class FileToKafkaRoute extends RouteBuilder {
 
-    final JacksonXMLDataFormat jacksonXmlDataFormat;
+    JacksonXMLDataFormat jacksonXmlDataFormat;
 
     @Override
     public void configure() {
